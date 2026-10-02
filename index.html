@@ -30,7 +30,6 @@
             overflow-x: hidden;
         }
 
-        /* Ambient Glow & Background */
         body::before {
             content: '';
             position: fixed;
@@ -44,7 +43,6 @@
             z-index: 0;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -65,9 +63,6 @@
             font-weight: 900;
             color: var(--irish-gold);
             letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .nav-links {
@@ -97,6 +92,7 @@
             text-decoration: none;
             transition: 0.3s;
             box-shadow: 0 4px 15px rgba(0, 230, 118, 0.2);
+            display: inline-block;
         }
 
         .btn-primary:hover {
@@ -104,7 +100,6 @@
             box-shadow: 0 6px 20px rgba(0, 230, 118, 0.4);
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -167,7 +162,6 @@
             color: var(--accent-green);
         }
 
-        /* Container & Titles */
         .container {
             width: 85%;
             max-width: 1200px;
@@ -190,7 +184,6 @@
             font-size: 0.95rem;
         }
 
-        /* Lore / Grid Cards */
         .lore-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -217,7 +210,6 @@
             font-size: 1.3rem;
         }
 
-        /* Ranks / Hierarchy */
         .rank-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -253,7 +245,6 @@
             color: var(--irish-gold);
         }
 
-        /* Blacklist */
         .blacklist-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -282,7 +273,6 @@
             margin: 10px 0;
         }
 
-        /* Form */
         form {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -319,7 +309,6 @@
             border-color: var(--accent-green);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 30px;
@@ -340,7 +329,7 @@
             <li><a href="#blacklist">Kara Liste</a></li>
             <li><a href="#apply">Başvuru</a></li>
         </ul>
-        <a href="YOUR_DISCORD_LINK_HERE" target="_blank" class="btn-primary">Discord'a Katıl</a>
+        <a href="https://discord.gg/aT6EAz3zJ" target="_blank" class="btn-primary">Discord'a Katıl</a>
     </nav>
 
     <!-- HERO -->
@@ -381,27 +370,23 @@
         <p class="section-subtitle">R15 ve üzeri yönetim kademesini temsil eder.</p>
 
         <div class="rank-grid">
-            <!-- Saha -->
-            <div class="rank-item"><span>R1 - Stranger</span><span class="rank-badge">Saha</span></div>
+            <div class="rank-item" title="Yeni katılan, henüz kendini kanıtlamamış aday üye."><span>R1 - Stranger</span><span class="rank-badge">Saha</span></div>
             <div class="rank-item"><span>R2 - Runner</span><span class="rank-badge">Saha</span></div>
             <div class="rank-item"><span>R3 - Street Associate</span><span class="rank-badge">Saha</span></div>
             <div class="rank-item"><span>R4 - Collector</span><span class="rank-badge">Saha</span></div>
             <div class="rank-item"><span>R5 - Hustler</span><span class="rank-badge">Saha</span></div>
             
-            <!-- Kemik Kadro -->
             <div class="rank-item"><span>R6 - Enforcer Trainee</span><span class="rank-badge">Kemik Kadro</span></div>
             <div class="rank-item"><span>R7 - Enforcer</span><span class="rank-badge">Kemik Kadro</span></div>
             <div class="rank-item"><span>R8 - Made Man</span><span class="rank-badge">Kemik Kadro</span></div>
             <div class="rank-item"><span>R9 - Veteran Associate</span><span class="rank-badge">Kemik Kadro</span></div>
             <div class="rank-item"><span>R10 - Soldier</span><span class="rank-badge">Kemik Kadro</span></div>
 
-            <!-- Kıdemli -->
             <div class="rank-item"><span>R11 - Senior Soldier</span><span class="rank-badge">Kıdemli</span></div>
             <div class="rank-item"><span>R12 - Crew Chief</span><span class="rank-badge">Kıdemli</span></div>
             <div class="rank-item"><span>R13 - Veteran Enforcer</span><span class="rank-badge">Kıdemli</span></div>
             <div class="rank-item"><span>R14 - Capo Associate</span><span class="rank-badge">Kıdemli</span></div>
 
-            <!-- Yönetim (R15+) -->
             <div class="rank-item rank-management"><span>R15 - Caporegime</span><span class="rank-badge">Yönetim</span></div>
             <div class="rank-item rank-management"><span>R16 - Senior Capo</span><span class="rank-badge">Yönetim</span></div>
             <div class="rank-item rank-management"><span>R17 - Consigliere</span><span class="rank-badge">Yönetim</span></div>
@@ -437,27 +422,73 @@
         <h2 class="section-title">AİLEYE KATILIM BAŞVURUSU</h2>
         <p class="section-subtitle">Sokaklarımıza adım atmak için aşağıdaki bilgileri eksiksiz doldur.</p>
 
-        <form onsubmit="alert('Başvurunuz alındı! Discord sunucumuza gelip kayıt odasından bilgi verin.'); return false;">
+        <form id="discordForm">
             <div class="form-group">
                 <label>Discord Kullanıcı Adınız</label>
-                <input type="text" placeholder="Örn: nick#0000" required>
+                <input type="text" id="dcName" placeholder="Örn: nick#0000" required>
             </div>
             <div class="form-group">
                 <label>Karakter Adınız & Soyadınız (IC)</label>
-                <input type="text" placeholder="Örn: Arthur_Shelby" required>
+                <input type="text" id="icName" placeholder="Örn: Arthur_Shelby" required>
             </div>
             <div class="form-group">
                 <label>Karakter Hikayeniz / Rol Geçmişiniz</label>
-                <textarea rows="4" placeholder="Kısaca karakterinizin arka planından bahsedin..." required></textarea>
+                <textarea id="story" rows="4" placeholder="Kısaca karakterinizin arka planından bahsedin..." required></textarea>
             </div>
             <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer;">Başvuruyu Gönder</button>
         </form>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Irish Mob — MTA Grand Server F3 Formation. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.getElementById('discordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Webhook URL'sini buraya yapıştır
+            const webhookUrl = "BURAYA_DISCORD_WEBHOOK_LINKINI_YAZIN"; 
+
+            const dcName = document.getElementById('dcName').value;
+            const icName = document.getElementById('icName').value;
+            const story = document.getElementById('story').value;
+
+            if (webhookUrl === "BURAYA_DISCORD_WEBHOOK_LINKINI_YAZIN") {
+                alert("Lütfen koda Discord Webhook linkinizi ekleyin!");
+                return;
+            }
+
+            const payload = {
+                embeds: [{
+                    title: "☘️ YENİ AİLE BAŞVURUSU!",
+                    color: 57637,
+                    fields: [
+                        { name: "👤 Discord Kullanıcı Adı", value: dcName, inline: true },
+                        { name: "🎭 Karakter Adı (IC)", value: icName, inline: true },
+                        { name: "📖 Karakter Hikayesi & Rol Geçmişi", value: story }
+                    ],
+                    footer: { text: "Irish Mob Web Application System" },
+                    timestamp: new Date()
+                }]
+            };
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(response => {
+                if (response.ok) {
+                    alert("Başvurunuz başarıyla Discord sunucumuza gönderildi!");
+                    document.getElementById('discordForm').reset();
+                } else {
+                    alert("Başvuru gönderilirken bir sorun oluştu.");
+                }
+            }).catch(error => {
+                alert("Hata oluştu. Webhook linkinizi kontrol edin.");
+            });
+        });
+    </script>
 
 </body>
 </html>
