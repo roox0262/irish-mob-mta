@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grand MTA | Birlik & Aile Arayüzü</title>
+    <title>ROTA MTA | Birlik & Aile Arayüzü</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -160,8 +160,7 @@
         }
 
         .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group textarea {
             width: 100%;
             padding: 12px;
             background: var(--bg-color);
@@ -173,8 +172,7 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--bright-green);
         }
@@ -189,12 +187,93 @@
             font-weight: 700;
             font-size: 1rem;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: background 0.2s, transform 0.1s;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .btn-submit:hover {
+            background: #2d6a4f;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.99);
+        }
+
+        /* Şık Özel Bildirim Kutusu (Modal) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 999;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-box {
+            background: #121815;
+            border: 1px solid var(--bright-green);
+            box-shadow: 0 0 25px rgba(64, 145, 108, 0.3);
+            border-radius: 12px;
+            padding: 30px 25px;
+            text-align: center;
+            max-width: 420px;
+            width: 90%;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: translateY(0);
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .modal-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .modal-message {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .btn-modal-close {
+            background: var(--bright-green);
+            color: #ffffff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .btn-modal-close:hover {
             background: #2d6a4f;
         }
 
@@ -409,7 +488,7 @@
                     <textarea id="experience" rows="4" placeholder="Daha önce bulunduğunuz sunucular veya ekipler..." required></textarea>
                 </div>
 
-                <button type="submit" class="btn-submit">BAŞVURUYU GÖNDER</button>
+                <button type="submit" id="submitBtn" class="btn-submit">BAŞVURUYU GÖNDER</button>
             </form>
         </div>
 
@@ -418,19 +497,54 @@
         </footer>
     </div>
 
+    <!-- Özel Bildirim Kutusu (Modal) -->
+    <div class="modal-overlay" id="customModal">
+        <div class="modal-box">
+            <div class="modal-icon" id="modalIcon">✅</div>
+            <div class="modal-title" id="modalTitle">BAŞVURU İLETİLDİ</div>
+            <div class="modal-message" id="modalMessage">Başvurunuz başarıyla yönetim ekibimize ulaştı. Kısa süre içerisinde Discord üzerinden dönüş yapılacaktır.</div>
+            <button class="btn-modal-close" onclick="closeModal()">TAMAM</button>
+        </div>
+    </div>
+
     <script>
+        const webhookUrl = 'https://discord.com/api/webhooks/1555529285907906631/vkW7ZnVUHXBrujkV_y6_sZAw4zwc_i_vlkIwEKElaWt4ZOK8owysoI2O85I73UrW8VsN';
+
+        function showModal(title, message, icon = '✅', isError = false) {
+            const modal = document.getElementById('customModal');
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalMessage').innerText = message;
+            document.getElementById('modalIcon').innerText = icon;
+
+            const modalBox = modal.querySelector('.modal-box');
+            if (isError) {
+                modalBox.style.borderColor = '#e63946';
+                modalBox.style.boxShadow = '0 0 25px rgba(230, 57, 70, 0.3)';
+            } else {
+                modalBox.style.borderColor = 'var(--bright-green)';
+                modalBox.style.boxShadow = '0 0 25px rgba(64, 145, 108, 0.3)';
+            }
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('customModal').classList.remove('active');
+        }
+
         document.getElementById('applyForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Seninkinin birebir eklenmiş hali:
-            const webhookUrl = 'https://discord.com/api/webhooks/1555529285907906631/vkW7ZnVUHXBrujkV_y6_sZAw4zwc_i_vlkIwEKElaWt4ZOK8owysoI2O85I73UrW8VsN';
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.innerText = 'GÖNDERİLİYOR...';
+            submitBtn.disabled = true;
 
             const icName = document.getElementById('icName').value;
             const discordUser = document.getElementById('discordUser').value;
             const age = document.getElementById('age').value;
             const experience = document.getElementById('experience').value;
 
-            const contentText = `📥 **YENİ BAŞVURU GELMİŞTİR!**\n\n` +
+            const contentText = `📥 **YENİ BİRLİK BAŞVURUSU!**\n\n` +
                                 `👤 **Karakter Adı (IC):** ${icName}\n` +
                                 `💬 **Discord Adı (OOC):** ${discordUser}\n` +
                                 `🎂 **Yaş:** ${age}\n` +
@@ -447,15 +561,33 @@
             })
             .then(response => {
                 if (response.ok || response.status === 204) {
-                    alert('Başvurunuz başarıyla yönetime iletildi!');
+                    showModal(
+                        'BAŞVURU İLETİLDİ',
+                        'Başvurunuz başarıyla yönetim ekibimize ulaştı. En kısa sürede Discord üzerinden sizinle iletişime geçilecektir.',
+                        '⚔️',
+                        false
+                    );
                     document.getElementById('applyForm').reset();
                 } else {
-                    alert('Hata Kodu: ' + response.status + ' - Lütfen Webhook izinlerini veya kanal ayarlarını kontrol edin.');
+                    showModal(
+                        'BİR HATA OLUŞTU',
+                        'Başvurunuz gönderilirken sunucu taraflı bir hata oluştu. Lütfen daha sonra tekrar deneyin.',
+                        '⚠️',
+                        true
+                    );
                 }
             })
             .catch(error => {
-                console.error('Hata:', error);
-                alert('Ağ Hatası: Gönderilemedi. ' + error.message);
+                showModal(
+                    'BAĞLANTI HATASI',
+                    'Ağ bağlantınızda veya sunucuda bir sorun oluştu: ' + error.message,
+                    '❌',
+                    true
+                );
+            })
+            .finally(() => {
+                submitBtn.innerText = 'BAŞVURUYU GÖNDER';
+                submitBtn.disabled = false;
             });
         });
     </script>
