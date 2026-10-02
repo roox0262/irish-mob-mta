@@ -3,283 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Irish Mob — Grand F3 HQ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>ROTA MTA | Birlik & Aile Arayüzü</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #0a0e0b;
-            --bg-card: #121814;
-            --accent-green: #00e676;
-            --irish-gold: #d4af37;
-            --border-color: #1e2920;
-            --text-main: #e2e8f0;
+            --bg-color: #0b0e0c;
+            --card-bg: #121815;
+            --accent-green: #2e5a44;
+            --bright-green: #40916c;
+            --light-green: #74c69d;
+            --gold: #d4af37;
+            --text-main: #e0e6e2;
             --text-muted: #8a998e;
+            --border-color: #1e2923;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--bg-main);
+            background-color: var(--bg-color);
             color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: -20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(0, 230, 118, 0.08) 0%, rgba(0,0,0,0) 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(10, 14, 11, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--irish-gold);
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-green);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #00e676 0%, #00a854 100%);
-            color: #000;
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 230, 118, 0.2);
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 230, 118, 0.4);
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            margin-top: 40px;
-        }
-
-        .hero-badge {
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--irish-gold);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            background: linear-gradient(180deg, #ffffff 0%, #8a998e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.1;
-        }
-
-        .hero p {
-            max-width: 650px;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 35px;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-secondary {
-            border: 1px solid var(--border-color);
-            background: var(--bg-card);
-            color: var(--text-main);
-            padding: 10px 22px;
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent-green);
-            color: var(--accent-green);
+            padding: 20px;
         }
 
         .container {
-            width: 85%;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 100px 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: #ffffff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(64, 145, 108, 0.4);
+        }
+
+        header p {
+            color: var(--light-green);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-top: 5px;
         }
 
         .section-title {
             font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            color: var(--irish-gold);
-            text-align: center;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--bright-green);
+            padding-left: 12px;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 50px;
-            font-size: 0.95rem;
-        }
-
-        .lore-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            border-radius: 12px;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            border-color: rgba(0, 230, 118, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            font-family: 'Cinzel', serif;
-            color: var(--accent-green);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
+        /* Rütbe Izgarası */
         .rank-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 15px;
+            margin-bottom: 50px;
         }
 
         .rank-item {
-            background: var(--bg-card);
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 15px 20px;
-            border-radius: 8px;
+            padding: 15px 18px;
+            border-radius: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .rank-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--bright-green);
+        }
+
+        .rank-item.rank-management {
+            border-color: rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, #121815 0%, #1a1e12 100%);
+        }
+
+        .rank-item.rank-management:hover {
+            border-color: var(--gold);
+        }
+
+        .rank-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .rank-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #ffffff;
+        }
+
+        .rank-desc {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+        }
+
+        .rank-management .rank-desc {
+            color: #c2b078;
         }
 
         .rank-badge {
-            background: rgba(0, 230, 118, 0.1);
-            color: var(--accent-green);
-            padding: 4px 10px;
+            font-size: 0.7rem;
+            padding: 4px 8px;
             border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .rank-management {
-            border-color: rgba(212, 175, 55, 0.4);
-            background: rgba(212, 175, 55, 0.03);
+            background: var(--accent-green);
+            color: #ffffff;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
         .rank-management .rank-badge {
-            background: rgba(212, 175, 55, 0.2);
-            color: var(--irish-gold);
+            background: #8a7322;
+            color: #fff;
         }
 
-        .blacklist-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .wanted-card {
-            background: #140d0d;
-            border: 1px solid #331515;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .wanted-card h4 {
-            color: #ff5252;
-            font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-        }
-
-        .reward {
-            color: var(--irish-gold);
-            font-weight: 800;
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-
-        form {
-            background: var(--bg-card);
+        /* Başvuru Formu */
+        .form-card {
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 40px;
-            border-radius: 12px;
-            max-width: 600px;
-            margin: 0 auto;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 50px;
         }
 
         .form-group {
@@ -290,185 +155,297 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            color: var(--light-green);
             font-size: 0.9rem;
-            color: var(--text-muted);
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 12px;
-            background: #0a0e0b;
+            background: var(--bg-color);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: #fff;
-            outline: none;
-            transition: 0.3s;
+            color: #ffffff;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
         }
 
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--accent-green);
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--bright-green);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--bright-green);
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-submit:hover {
+            background: #2d6a4f;
         }
 
         footer {
             text-align: center;
-            padding: 30px;
-            border-top: 1px solid var(--border-color);
+            padding: 20px 0;
             color: var(--text-muted);
             font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
         }
     </style>
 </head>
 <body>
 
-    <!-- NAV -->
-    <nav>
-        <div class="logo">☘️ IRISH MOB</div>
-        <ul class="nav-links">
-            <li><a href="#lore">Hikaye</a></li>
-            <li><a href="#ranks">Hiyerarşi</a></li>
-            <li><a href="#blacklist">Kara Liste</a></li>
-            <li><a href="#apply">Başvuru</a></li>
-        </ul>
-        <a href="https://discord.gg/aT6EAz3zJ" target="_blank" class="btn-primary">Discord'a Katıl</a>
-    </nav>
+    <div class="container">
+        <header>
+            <h1>ROTA MTA</h1>
+            <p>AİLE & BİRLİK HİYERARŞİSİ VE BAŞVURU SİSTEMİ</p>
+        </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-badge">GRAND F3 FORMATION</div>
-        <h1>DUBLIN'IN KARANLIK<br>SOKAKLARINA HOŞ GELDİN</h1>
-        <p>Geleneksel racon, sarsılmaz sadakat ve sokakların acımasız kuralı. İrlanda sokak mafyası Grand sunucusunda hüküm sürmeye hazır.</p>
-        <div class="hero-btns">
-            <a href="#apply" class="btn-primary">Aileye Katıl</a>
-            <a href="#ranks" class="btn-secondary">Rütbe Sistemimiz</a>
-        </div>
-    </section>
-
-    <!-- LORE -->
-    <div class="container" id="lore">
-        <h2 class="section-title">AİLE HİKAYESİ & AMENTÜ</h2>
-        <p class="section-subtitle">Köklerimiz Dublin limanlarına, gücümüz ise sadakatimize dayanır.</p>
-        
-        <div class="lore-grid">
-            <div class="card">
-                <h3>🇮🇪 Dublin'den Gelen Ruh</h3>
-                <p>İrlanda'nın sert ikliminde yetişmiş, birbirine kan bağı kadar güçlü bağlarla bağlı olan bir ekibiz. Sokakta hakkımızı söke söke alırız.</p>
-            </div>
-            <div class="card">
-                <h3>⚖️ Kanun & Racon (Omertà)</h3>
-                <p>Kendi aramızda yalan söylemeyiz, aile sırlarını dışarı taşımayız. Aileye yapılan tek bir saygısızlık tüm sokakları ateşe verir.</p>
-            </div>
-            <div class="card">
-                <h3>🍻 Yer Altı İşletmeleri</h3>
-                <p>Liman depoları, yer altı boks dövüşleri, gece barları ve sokak ticareti. Bizim olduğumuz yerde sadece bizim kurallarımız geçer.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- RANKS -->
-    <div class="container" id="ranks">
-        <h2 class="section-title">RÜTBE HİYERARŞİSİ (R1 - R20)</h2>
-        <p class="section-subtitle">R15 ve üzeri yönetim kademesini temsil eder.</p>
-
+        <!-- Rütbe Listesi -->
+        <h2 class="section-title">Hiyerarşi & Rütbe Yapısı</h2>
         <div class="rank-grid">
-            <div class="rank-item" title="Yeni katılan, henüz kendini kanıtlamamış aday üye."><span>R1 - Stranger</span><span class="rank-badge">Saha</span></div>
-            <div class="rank-item"><span>R2 - Runner</span><span class="rank-badge">Saha</span></div>
-            <div class="rank-item"><span>R3 - Street Associate</span><span class="rank-badge">Saha</span></div>
-            <div class="rank-item"><span>R4 - Collector</span><span class="rank-badge">Saha</span></div>
-            <div class="rank-item"><span>R5 - Hustler</span><span class="rank-badge">Saha</span></div>
             
-            <div class="rank-item"><span>R6 - Enforcer Trainee</span><span class="rank-badge">Kemik Kadro</span></div>
-            <div class="rank-item"><span>R7 - Enforcer</span><span class="rank-badge">Kemik Kadro</span></div>
-            <div class="rank-item"><span>R8 - Made Man</span><span class="rank-badge">Kemik Kadro</span></div>
-            <div class="rank-item"><span>R9 - Veteran Associate</span><span class="rank-badge">Kemik Kadro</span></div>
-            <div class="rank-item"><span>R10 - Soldier</span><span class="rank-badge">Kemik Kadro</span></div>
+            <!-- Saha & Ayak İşleri -->
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R1 - Stranger</span>
+                    <span class="rank-desc">Yeni katılan, henüz güven kazanmamış aday üye</span>
+                </div>
+                <span class="rank-badge">Saha</span>
+            </div>
 
-            <div class="rank-item"><span>R11 - Senior Soldier</span><span class="rank-badge">Kıdemli</span></div>
-            <div class="rank-item"><span>R12 - Crew Chief</span><span class="rank-badge">Kıdemli</span></div>
-            <div class="rank-item"><span>R13 - Veteran Enforcer</span><span class="rank-badge">Kıdemli</span></div>
-            <div class="rank-item"><span>R14 - Capo Associate</span><span class="rank-badge">Kıdemli</span></div>
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R2 - Runner</span>
+                    <span class="rank-desc">Kurye / Sokaktaki ufak sevkiyat ve getir-götür işlerinden sorumlu üye</span>
+                </div>
+                <span class="rank-badge">Saha</span>
+            </div>
 
-            <div class="rank-item rank-management"><span>R15 - Caporegime</span><span class="rank-badge">Yönetim</span></div>
-            <div class="rank-item rank-management"><span>R16 - Senior Capo</span><span class="rank-badge">Yönetim</span></div>
-            <div class="rank-item rank-management"><span>R17 - Consigliere</span><span class="rank-badge">Yönetim</span></div>
-            <div class="rank-item rank-management"><span>R18 - Underboss</span><span class="rank-badge">Yönetim</span></div>
-            <div class="rank-item rank-management"><span>R19 - Boss</span><span class="rank-badge">Yönetim</span></div>
-            <div class="rank-item rank-management"><span>R20 - Godfather</span><span class="rank-badge">Kurucu</span></div>
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R3 - Street Associate</span>
+                    <span class="rank-desc">Sokak üyesi / Mahallede aktif rollerde yer alan, çevre edinen üye</span>
+                </div>
+                <span class="rank-badge">Saha</span>
+            </div>
+
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R4 - Collector</span>
+                    <span class="rank-desc">Tahsilatçı / Bölgedeki haraç, borç ve tahsilat işlerini yürüten güç</span>
+                </div>
+                <span class="rank-badge">Saha</span>
+            </div>
+
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R5 - Hustler</span>
+                    <span class="rank-desc">Sokak tüccarı / Sokak düzeyindeki illegal ticareti ve sıcak parayı yöneten üye</span>
+                </div>
+                <span class="rank-badge">Saha</span>
+            </div>
+
+            <!-- Kemik Kadro -->
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R6 - Enforcer Trainee</span>
+                    <span class="rank-desc">Acemi tetikçi / Silahlı kanada girmeye aday gösterilmiş üye</span>
+                </div>
+                <span class="rank-badge">Kemik Kadro</span>
+            </div>
+
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R7 - Enforcer</span>
+                    <span class="rank-desc">Tetikçi / Saha güvenliğini sağlayan, çatışmalarda ön safta yer alan kemik güç</span>
+                </div>
+                <span class="rank-badge">Kemik Kadro</span>
+            </div>
+
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R8 - Made Man</span>
+                    <span class="rank-desc">Kabul görmüş üye / Raconu bilen, aileye sadakat yemini etmiş resmi aile üyesi</span>
+                </div>
+                <span class="rank-badge">Kemik Kadro</span>
+            </div>
+
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R9 - Veteran Associate</span>
+                    <span class="rank-desc">Kıdemli sokak üyesi / Tecrübesi yüksek, alt rütbelere rehberlik eden üye</span>
+                </div>
+                <span class="rank-badge">Kemik Kadro</span>
+            </div>
+
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R10 - Soldier</span>
+                    <span class="rank-desc">Asker / Ailenin ana askeri gücü, operasyonların bel kemiği olan üye</span>
+                </div>
+                <span class="rank-badge">Kemik Kadro</span>
+            </div>
+
+            <!-- Kıdemli Kadro -->
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R11 - Senior Soldier</span>
+                    <span class="rank-desc">Kıdemli asker / Sahada taktiksel liderlik yapabilen tecrübeli savaşçı</span>
+                </div>
+                <span class="rank-badge">Kıdemli</span>
+            </div>
+
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R12 - Crew Chief</span>
+                    <span class="rank-desc">Ekip başı / Belirli bir sokak grubunu veya operasyon ekibini sahada sevk eden üye</span>
+                </div>
+                <span class="rank-badge">Kıdemli</span>
+            </div>
+
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R13 - Veteran Enforcer</span>
+                    <span class="rank-desc">Kıdemli tetikçi / Ailenin en kritik ve tehlikeli silahlı görevlerini üstlenen üye</span>
+                </div>
+                <span class="rank-badge">Kıdemli</span>
+            </div>
+
+            <div class="rank-item">
+                <div class="rank-info">
+                    <span class="rank-title">R14 - Capo Associate</span>
+                    <span class="rank-desc">Lider yardımcı adayı / Yönetim kademesine hazırlanacak stajyer lider</span>
+                </div>
+                <span class="rank-badge">Kıdemli</span>
+            </div>
+
+            <!-- Yönetim Kademesi -->
+            <div class="rank-item rank-management">
+                <div class="rank-info">
+                    <span class="rank-title">R15 - Caporegime</span>
+                    <span class="rank-desc">Bölge ve tayfa lideri / Yönetim kurulunun ilk kademesi</span>
+                </div>
+                <span class="rank-badge">Yönetim</span>
+            </div>
+
+            <div class="rank-item rank-management">
+                <div class="rank-info">
+                    <span class="rank-title">R16 - Senior Capo</span>
+                    <span class="rank-desc">Kıdemli bölge lideri / Birden fazla Capo ve ekibin koordinasyonunu sağlayan yönetici</span>
+                </div>
+                <span class="rank-badge">Yönetim</span>
+            </div>
+
+            <div class="rank-item rank-management">
+                <div class="rank-info">
+                    <span class="rank-title">R17 - Consigliere</span>
+                    <span class="rank-desc">Danışman / Ailenin hukuk, racon ve diplomasi uzmanı, liderliğin akıl hocası</span>
+                </div>
+                <span class="rank-badge">Yönetim</span>
+            </div>
+
+            <div class="rank-item rank-management">
+                <div class="rank-info">
+                    <span class="rank-title">R18 - Underboss</span>
+                    <span class="rank-desc">Sağ kol / Ailenin ikinci adamı, tüm operasyonların ve disiplinin doğrudan sorumlusu</span>
+                </div>
+                <span class="rank-badge">Yönetim</span>
+            </div>
+
+            <div class="rank-item rank-management">
+                <div class="rank-info">
+                    <span class="rank-title">R19 - Patriarch / Boss</span>
+                    <span class="rank-desc">Aile başı / Lider / Tüm hayati kararlarda nihai onay mercii olan aile lideri</span>
+                </div>
+                <span class="rank-badge">Yönetim</span>
+            </div>
+
+            <div class="rank-item rank-management">
+                <div class="rank-info">
+                    <span class="rank-title">R20 - Founder / Godfather</span>
+                    <span class="rank-desc">Kurucu / Ailenin kurucusu ve en üst düzey şeref lideri</span>
+                </div>
+                <span class="rank-badge">Kurucu</span>
+            </div>
+
         </div>
-    </div>
 
-    <!-- BLACKLIST -->
-    <div class="container" id="blacklist">
-        <h2 class="section-title">💀 KARA LİSTE & ARANANLAR</h2>
-        <p class="section-subtitle">Aileye ihanet edenlerin bedeli sokakta ödenir.</p>
+        <!-- Başvuru Formu -->
+        <h2 class="section-title">Ailaye / Birliğe Başvuru Yap</h2>
+        <div class="form-card">
+            <form id="applyForm">
+                <div class="form-group">
+                    <label for="icName">Karakter Adı & Soyadı (IC):</label>
+                    <input type="text" id="icName" placeholder="Örn: Marcus Phillips" required>
+                </div>
 
-        <div class="blacklist-grid">
-            <div class="wanted-card">
-                <h4>Karakter Adı</h4>
-                <p style="color: #8a998e; font-size:0.85rem;">İhanet / Borç Kaçırma</p>
-                <div class="reward">$50,000 ÖDÜL</div>
-                <p style="font-size:0.8rem; color:#aaa;">Görüldüğü yerde infaz edilecek.</p>
-            </div>
-            <div class="wanted-card">
-                <h4>Düşman Çete Lideri</h4>
-                <p style="color: #8a998e; font-size:0.85rem;">Mekan Baskını</p>
-                <div class="reward">$100,000 ÖDÜL</div>
-                <p style="font-size:0.8rem; color:#aaa;">Ölü ya da diri teslim alınacak.</p>
-            </div>
+                <div class="form-group">
+                    <label for="discordUser">Discord Kullanıcı Adı (OOC):</label>
+                    <input type="text" id="discordUser" placeholder="Örn: kullanıcı_adı" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Yaşınız:</label>
+                    <input type="number" id="age" placeholder="Örn: 17" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Roleplay Tecrübeniz / Geçmiş Birlikleriniz:</label>
+                    <textarea id="experience" rows="4" placeholder="Daha önce bulunduğunuz sunucular veya ekipler..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">BAŞVURUYU GÖNDER</button>
+            </form>
         </div>
+
+        <footer>
+            <p>&copy; 2026 ROTA MTA Birlik Yönetimi. Tüm Hakları Saklıdır.</p>
+        </footer>
     </div>
-
-    <!-- APPLY FORM -->
-    <div class="container" id="apply">
-        <h2 class="section-title">AİLEYE KATILIM BAŞVURUSU</h2>
-        <p class="section-subtitle">Sokaklarımıza adım atmak için aşağıdaki bilgileri eksiksiz doldur.</p>
-
-        <form id="discordForm">
-            <div class="form-group">
-                <label>Discord Kullanıcı Adınız</label>
-                <input type="text" id="dcName" placeholder="Örn: nick#0000" required>
-            </div>
-            <div class="form-group">
-                <label>Karakter Adınız & Soyadınız (IC)</label>
-                <input type="text" id="icName" placeholder="Örn: Arthur_Shelby" required>
-            </div>
-            <div class="form-group">
-                <label>Karakter Hikayeniz / Rol Geçmişiniz</label>
-                <textarea id="story" rows="4" placeholder="Kısaca karakterinizin arka planından bahsedin..." required></textarea>
-            </div>
-            <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer;">Başvuruyu Gönder</button>
-        </form>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Irish Mob — MTA Grand Server F3 Formation. All rights reserved.</p>
-    </footer>
 
     <script>
-        document.getElementById('discordForm').addEventListener('submit', function(e) {
+        document.getElementById('applyForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Webhook URL'sini buraya yapıştır
-            const webhookUrl = "BURAYA_DISCORD_WEBHOOK_LINKINI_YAZIN"; 
+            // DISCORD WEBHOOK LINKINI BURAYA YAPISTIRIN
+            const webhookUrl = 'BURAYA_DISCORD_WEBHOOK_LINKINI_YAZIN';
 
-            const dcName = document.getElementById('dcName').value;
             const icName = document.getElementById('icName').value;
-            const story = document.getElementById('story').value;
+            const discordUser = document.getElementById('discordUser').value;
+            const age = document.getElementById('age').value;
+            const experience = document.getElementById('experience').value;
 
-            if (webhookUrl === "BURAYA_DISCORD_WEBHOOK_LINKINI_YAZIN") {
-                alert("Lütfen koda Discord Webhook linkinizi ekleyin!");
+            if (webhookUrl === 'BURAYA_DISCORD_WEBHOOK_LINKINI_YAZIN' || !webhookUrl) {
+                alert('Lütfen index.html dosyasındaki webhookUrl kısmına Discord Webhook linkinizi yapıştırın!');
                 return;
             }
 
             const payload = {
                 embeds: [{
-                    title: "☘️ YENİ AİLE BAŞVURUSU!",
-                    color: 57637,
+                    title: "📥 Yeni Birlik Başvurusu!",
+                    color: 3066993, // Yeşil tonu
                     fields: [
-                        { name: "👤 Discord Kullanıcı Adı", value: dcName, inline: true },
-                        { name: "🎭 Karakter Adı (IC)", value: icName, inline: true },
-                        { name: "📖 Karakter Hikayesi & Rol Geçmişi", value: story }
+                        { name: "Karakter Adı (IC)", value: icName, inline: true },
+                        { name: "Discord Kullanıcı Adı", value: discordUser, inline: true },
+                        { name: "Yaş", value: age, inline: true },
+                        { name: "Tecrübe / Geçmiş", value: experience, inline: false }
                     ],
-                    footer: { text: "Irish Mob Web Application System" },
+                    footer: { text: "ROTA MTA Başvuru Sistemi" },
                     timestamp: new Date()
                 }]
             };
@@ -477,18 +454,20 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
-            }).then(response => {
+            })
+            .then(response => {
                 if (response.ok) {
-                    alert("Başvurunuz başarıyla Discord sunucumuza gönderildi!");
-                    document.getElementById('discordForm').reset();
+                    alert('Başvurunuz başarıyla yönetime iletildi!');
+                    document.getElementById('applyForm').reset();
                 } else {
-                    alert("Başvuru gönderilirken bir sorun oluştu.");
+                    alert('Bir hata oluştu, lütfen Discord Webhook URL adresinizi kontrol edin.');
                 }
-            }).catch(error => {
-                alert("Hata oluştu. Webhook linkinizi kontrol edin.");
+            })
+            .catch(error => {
+                console.error('Hata:', error);
+                alert('Başvuru gönderilirken bir hata oluştu.');
             });
         });
     </script>
-
 </body>
 </html>
